@@ -7,12 +7,13 @@ let orderschema = new Schema({
 		type : String,
 		required :true
 	},
+	email:{
+		type : String,
+		required :true
+	},
 	phone : {
 		type : Number,
 		required :true
-	},
-	house : {
-		type : Number
 	},
 	address : {
 		type: String,
@@ -21,9 +22,21 @@ let orderschema = new Schema({
 	city : {
 		type: String,
 		required: true
+	},
+	pizzaType : {
+		type: String,
+		required: true
+	},
+	pizzaSize : {
+		type: String,
+		required: true
+	},
+	pizzaDough : {
+		type: String,
+		required: true
 	}
 });
 
-const User = mongoose.model('User', orderschema);
+const Order = mongoose.model('Order', orderschema);
 
-module.exports = User;
+module.exports = Order;
