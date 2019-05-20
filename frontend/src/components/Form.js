@@ -85,8 +85,27 @@ class Form extends Component {
   handleSubmit(e){
     e.preventDefault();
     const err  = this.validate();
+    let data  = {
+      name : this.state.name,
+      email : this.state.email,
+      address : this.state.address,
+      city : this.state.city,
+      phone : this.state.phone,
+      pizzaType : this.state.pizzaType,
+      pizzaSize : this.state.pizzaSize,
+      pizzaDough : this.state.pizzaDough
+    }
+    console.log('Data',data)
     if(!err){
-      
+      fetch('http://127.0.0.1:5000/orders/placeOrder',{
+        method : 'POST',
+        body: JSON.stringify(data),
+        headers:{
+          'Content-Type': 'application/json;charset=UTF-8'
+        }
+      }).then(res => res.json())
+      .then(response => console.log('Success:', JSON.stringify(response)))
+      .catch(error => console.error('Error:', error));
       this.setState ({
         name : '',
         nameError: '',
@@ -98,11 +117,8 @@ class Form extends Component {
         cityError: '',
         phone: '',
         phoneError: '',
-        pizzaType: '',
         typeError: '',
-        pizzaSize: '',
         sizeError: '',
-        pizzaDough: '',
         doughError: ''
       },() => {
         this.handleChange({
@@ -116,8 +132,6 @@ class Form extends Component {
           pizzaDough:''
         });
       })
-      console.log(this.state);
-      
       console.log(this.state);
     }
   }
