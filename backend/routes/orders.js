@@ -31,7 +31,13 @@ router.post('/placeOrder',(req,res) => {
 });
 
 router.get('/',(req,res) => {
-	res.send('HIIIII');
+	Order.find({},(err,data) => {
+		if(err){
+			console.log("Error" , err)
+		}else{
+			res.send(data);
+		}
+	})
 });
 
 
