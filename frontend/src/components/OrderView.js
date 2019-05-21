@@ -1,31 +1,40 @@
 import React from 'react';
 
-
-
-let OrderView = (props) => {
-    return(
-        <div className="orderContainer" key ={props.key}>
-            <div className="orderNo">Order #{props.key + 1}</div>
-            <div className ="orderValues">
-                <div className="orderValue"><span className = "valueTitle">Order ID:  </span><span>{props.order._id}</span></div>
-                <div className="orderValue"><span className = "valueTitle">Name:  </span><span>{props.order.name}</span></div>
-                <div className="orderValue"><span className = "valueTitle">Email:  </span><span>{props.order.email}</span></div>
-                <div className="orderValue"><span className = "valueTitle">Address:  </span><span>{props.order.address}</span></div>
-                <div className="orderValue"><span className = "valueTitle">City:  </span><span>{props.order.city}</span></div>
-                <div className="orderValue"><span className = "valueTitle">Phone Number:  </span><span>{props.order.phone}</span></div>
-                <div className="orderValue"><span className = "valueTitle">Type:  </span><span>{props.order.pizzaType}</span></div>
-                <div className="orderValue"><span className = "valueTitle">Size:  </span><span>{props.order.pizzaSize}</span></div>
-                <div className="orderValue"><span className = "valueTitle">Dough:  </span><span>{props.order.pizzaDough}</span></div>
-                <div className="status">
-
+class OrderView extends React.Component{
+    handleDelete(){
+        console.log("hiiiii");
+        this.props.handleDelete(this.props.order._id);
+    }
+    handleStatus(){
+        console.log("hiiiii");
+        this.props.handleStatus(this.props.order._id);
+    }
+    render(){
+        return(
+            <div className="orderContainer">
+                <div className="orderNo">
+                    <div>Order #{this.props.index +1}</div>
+                    <div className="status">{this.props.completed?"Completed":"In Progress"}</div>
+                </div>
+                <div className ="orderValues">
+                    <div className="orderValue"><span className = "valueTitle">Order ID:  </span><span>{this.props.order._id}</span></div>
+                    <div className="orderValue"><span className = "valueTitle">Name:  </span><span>{this.props.order.name}</span></div>
+                    <div className="orderValue"><span className = "valueTitle">Email:  </span><span>{this.props.order.email}</span></div>
+                    <div className="orderValue"><span className = "valueTitle">Address:  </span><span>{this.props.order.address}</span></div>
+                    <div className="orderValue"><span className = "valueTitle">City:  </span><span>{this.props.order.city}</span></div>
+                    <div className="orderValue"><span className = "valueTitle">Phone Number:  </span><span>{this.props.order.phone}</span></div>
+                    <div className="orderValue"><span className = "valueTitle">Type:  </span><span>{this.props.order.pizzaType}</span></div>
+                    <div className="orderValue"><span className = "valueTitle">Size:  </span><span>{this.props.order.pizzaSize}</span></div>
+                    <div className="orderValue"><span className = "valueTitle">Dough:  </span><span>{this.props.order.pizzaDough}</span></div>
+                    <div className="orderStatus">
+                        <div className="statusButton completeStatus" onClick = {this.handleStatus.bind(this)}><i className="fa fa-check"></i>Complete</div>
+                        <div className = "statusButton deleteStatus" onClick = {this.handleDelete.bind(this)}><i className="fa fa-trash"></i>Delete</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
-
-
-
 
 export default OrderView;
 

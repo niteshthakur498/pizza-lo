@@ -29,7 +29,6 @@ router.post('/placeOrder',(req,res) => {
        }
 	})
 });
-
 router.get('/',(req,res) => {
 	Order.find({},(err,data) => {
 		if(err){
@@ -37,6 +36,12 @@ router.get('/',(req,res) => {
 		}else{
 			res.send(data);
 		}
+	})
+});
+
+router.delete('/delete',(req,res)=>{
+	Order.findByIdAndRemove({_id:req.body.id}).then(response=>{
+		res.send(response)
 	})
 });
 

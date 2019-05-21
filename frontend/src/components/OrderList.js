@@ -9,17 +9,16 @@ class OrderList extends Component{
             data: []
         }
         this.list = [];
+        this.handleFetch = this.handleFetch.bind(this)
     }
 
     componentDidMount(){
+        this.handleFetch(); 
+    }
+    handleFetch(){
         fetch('http://127.0.0.1:5000/orders')
             .then(res => res.json())
             .then(response => {
-                console.log(response);
-                // this.setState({
-                //     data: response
-                // })
-                console.log(response)
                 this.list = response;
                 this.setState({
                     data: this.list
@@ -30,11 +29,11 @@ class OrderList extends Component{
                 console.log(err);
             });
     }
-
     handleAll(){
         this.setState({
             data: this.list
         })
+        console.log("All")
     }
     handleCompleted(){
         this.setState({
@@ -42,7 +41,7 @@ class OrderList extends Component{
                 return elem.completed;
            })
         })
-        console.log(this.list)
+        console.log("Completed")
     }
     handleProgress(){
         this.setState({
@@ -50,6 +49,35 @@ class OrderList extends Component{
                     return !elem.completed;
                 })
         })
+        console.log("Progress")
+    }
+    handleDelete(completedID){
+        let data = {
+            id: completedID
+        }
+        fetch('http://127.0.0.1:5000/orders/delete',{
+                method : 'DELETE',
+                body: JSON.stringify(data),
+                headers:{
+                'Content-Type': 'application/json;charset=UTF-8'
+                }
+            })
+            .then(res => {
+                if(res.status >= 400){
+                    console.log('Failure')
+                }
+                res.json();
+            })
+            .then(response => {
+                console.log(response)
+                this.handleFetch();
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+    }
+    handleStatus(){
+        
     }
     render(){
         return(
@@ -66,7 +94,7 @@ class OrderList extends Component{
                         </div>
                         {
                             this.state.data.map((order,key) => 
-                                <OrderView order = {order} key = {key}/>
+                                <OrderView order = {order}  key = {key} index = {key} handleDelete = {this.handleDelete.bind(this)} handleStatus = {this.handleStatus.bind(this)}/>
                             )
                         }
                     </div>

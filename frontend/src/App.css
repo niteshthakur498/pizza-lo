@@ -80,7 +80,9 @@ input[type="number"]::-webkit-outer-spin-button {
 ::-ms-input-placeholder { /* Microsoft Edge */
  color: #161718;
 }
-
+i{
+  margin-right: 5px;
+}
 label {
   margin-bottom: 4px;
   display: block;
@@ -136,7 +138,7 @@ header{
   background-color: transparent;
 }
 .ordersContainer{
-  width: 60%;
+  width: 70%;
   margin: 0px auto;
   background-color: #161718fc ;
   color: #aaa;
@@ -185,8 +187,11 @@ header{
   text-align: center;
   margin-bottom: 10px;
   text-transform: uppercase;
-  font-size: 22px;
+  font-size: 20px;
   color: #ddd;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 .orderTitle{
   font-size: 2em;
@@ -194,6 +199,28 @@ header{
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 40px;  
+}
+.status{
+  color: green;
+}
+.orderStatus{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+.statusButton{
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 3px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.completeStatus{
+  background-color: #43f143;
+}
+.deleteStatus{
+  background-color: #f14343;
 }
 @media(max-width:800px){
   .ordersContainer{
