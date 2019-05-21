@@ -94,7 +94,6 @@ label {
 
 .container{
   padding: 30px 35px;  
-
 }
 header{
   background: #161718;
@@ -127,4 +126,93 @@ header{
 }
 .formContent{
   background-color: rgba(0,0,0,0);
+}
+
+
+
+/*Orders*/
+
+.orderContent{
+  background-color: transparent;
+}
+.ordersContainer{
+  width: 60%;
+  margin: 0px auto;
+  background-color: #161718fc ;
+  color: #aaa;
+  text-align: left;
+  padding: 80px;
+  border-radius: 5px;
+  min-height: 85vh;
+}
+
+.valueTitle{
+  font-size: 16px;
+  font-family: Open Sans;
+  text-transform: uppercase;
+  color: #ddd;
+}
+
+.sort{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-size: 20px;  
+}
+
+.filter{
+  display: flex;
+}
+
+.sort div:first-child{
+  cursor: pointer;
+}
+
+.filter div{
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.orderContainer{
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 5px;
+}
+.orderNo{
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 22px;
+  color: #ddd;
+}
+.orderTitle{
+  font-size: 2em;
+  color: #ddd;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 40px;  
+}
+@media(max-width:800px){
+  .ordersContainer{
+    width: 100%;
+    padding: 20px;
+  }
+  .orderContent .container{
+    padding: 20px;
+  }
+  .sort{
+    font-size: 13px
+  }
+  .valueTitle{
+    font-size: 12px;
+  }
+  .orderValue{
+    font-size: 12px;
+  }
+  .orderNo{
+    font-size: 18px;
+  }
 }

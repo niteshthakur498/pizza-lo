@@ -3,13 +3,14 @@ import './App.css';
 
 import Header from './components/Header.js';
 import Form from './components/Form';
+import OrderList from './components/OrderList';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Header />
-        <Form />
+        <OrderList />
       </div>
     );
   }
