@@ -24,6 +24,13 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid rgba(134, 134, 134, 0.1);
 
 }
+a{
+  text-decoration: none;
+  color: #fff;
+}
+ul{
+  list-style: none;
+}
 .App{
   background-image: url('./static/images/bg.jpg');
   background-size: cover;
@@ -104,9 +111,27 @@ header{
 .header-content{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
-
+.activeNav{
+  color: green;
+}
+.logo{
+  font-size: 30px;
+}
+.navbar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.navbar ul{
+  display: flex;
+  flex-direction: row;
+}
+.navbar ul li{
+  margin-left: 20px;
+  font-size: 20px;
+}
 @media(min-width:800px){
   .formContainer{
     width:80%;
@@ -138,7 +163,7 @@ header{
   background-color: transparent;
 }
 .ordersContainer{
-  width: 70%;
+  width: 80%;
   margin: 0px auto;
   background-color: #161718fc ;
   color: #aaa;

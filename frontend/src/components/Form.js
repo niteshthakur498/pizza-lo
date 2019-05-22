@@ -132,7 +132,7 @@ class Form extends Component {
           pizzaDough:''
         });
       })
-      console.log(this.state);
+      
     }
   }
 
