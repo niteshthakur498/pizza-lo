@@ -14,7 +14,7 @@ router.use(cors());
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json({strict:false}));
 
-router.post('/placeOrder',(req,res) => {
+router.post('/',(req,res) => {
 	let data = req.body;
 	var order = new Order(data);
 	console.log(order);
@@ -24,7 +24,7 @@ router.post('/placeOrder',(req,res) => {
             res.send('500');
           }
        else{
-        console.log("Adder",order);
+        console.log("Added",order);
         res.send(order);
        }
 	})
@@ -39,10 +39,24 @@ router.get('/',(req,res) => {
 	})
 });
 
-router.delete('/delete',(req,res)=>{
-	Order.findByIdAndRemove({_id:req.body.id}).then(response=>{
+router.delete('/:id',(req,res)=>{
+	Order.findOneAndDelete({_id:req.params.id})
+		.then(response=>{
+			res.send(response)
+		})
+		.catch(err=>{
+			console.log(err)
+		})
+});
+
+router.put('/:id',(req,res)=>{
+	let data = {
+		completed : true
+	}
+	Order.findOneAndUpdate({_id:req.params.id},{completed:true},(err,response)=>{
+		console.log('Updataed')
 		res.send(response)
-	})
+	});
 });
 
 

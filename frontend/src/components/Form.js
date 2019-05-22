@@ -97,7 +97,7 @@ class Form extends Component {
     }
     console.log('Data',data)
     if(!err){
-      fetch('http://127.0.0.1:5000/orders/placeOrder',{
+      fetch('http://127.0.0.1:5000/orders',{
         method : 'POST',
         body: JSON.stringify(data),
         headers:{

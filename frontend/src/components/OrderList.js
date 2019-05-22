@@ -19,6 +19,7 @@ class OrderList extends Component{
         fetch('http://127.0.0.1:5000/orders')
             .then(res => res.json())
             .then(response => {
+                console.log("called")
                 this.list = response;
                 this.setState({
                     data: this.list
@@ -51,16 +52,9 @@ class OrderList extends Component{
         })
         console.log("Progress")
     }
-    handleDelete(completedID){
-        let data = {
-            id: completedID
-        }
-        fetch('http://127.0.0.1:5000/orders/delete',{
-                method : 'DELETE',
-                body: JSON.stringify(data),
-                headers:{
-                'Content-Type': 'application/json;charset=UTF-8'
-                }
+    handleDelete(deleteID){
+        fetch(`http://127.0.0.1:5000/orders/${deleteID}`,{
+                method : 'DELETE'
             })
             .then(res => {
                 if(res.status >= 400){
@@ -76,8 +70,24 @@ class OrderList extends Component{
                 console.log(err)
             })
     }
-    handleStatus(){
-        
+    handleStatus(completeID){
+        fetch(`http://127.0.0.1:5000/orders/${completeID}`,{
+            method: 'PUT'
+        })
+        .then(res=>{
+            if(res.status >= 400){
+                console.log('Failure')
+            }
+            res.json();
+        })
+        .then(response => {
+            console.log(response)
+            this.handleFetch();
+            
+        })
+        .catch(err=>{
+            console.log(err)
+        })
     }
     render(){
         return(
