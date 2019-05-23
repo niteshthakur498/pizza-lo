@@ -18,7 +18,7 @@ class App extends Component {
           <Route path='/home'>
             <Redirect to = "/"/>
           </Route>
-          <Route path = '/placeOrder' component = {Form}/>
+          <Route path = '/placeorders' component = {Form}/>
           <Route path = '/orders' component = {OrderList}/>
           <Route component = {NoMatch} />
         </Switch>
