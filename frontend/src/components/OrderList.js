@@ -16,7 +16,7 @@ class OrderList extends Component{
         this.handleFetch(); 
     }
     handleFetch(){
-        fetch('http://127.0.0.1:5000/orders')
+        fetch('http://127.0.0.1:5000/api/orders')
             .then(res => res.json())
             .then(response => {
                 console.log("called")
@@ -53,7 +53,7 @@ class OrderList extends Component{
         console.log("Progress")
     }
     handleDelete(deleteID){
-        fetch(`http://127.0.0.1:5000/orders/${deleteID}`,{
+        fetch(`http://127.0.0.1:5000/api/orders/${deleteID}`,{
                 method : 'DELETE'
             })
             .then(res => {
@@ -71,7 +71,7 @@ class OrderList extends Component{
             })
     }
     handleStatus(completeID){
-        fetch(`http://127.0.0.1:5000/orders/${completeID}`,{
+        fetch(`http://127.0.0.1:5000/api/orders/${completeID}`,{
             method: 'PUT'
         })
         .then(res=>{

@@ -5,7 +5,7 @@ let router = express.Router();
 
 let mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI||"mongodb://localhost:27017/Orders" ,{ useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/Orders" ,{ useNewUrlParser: true });
 let Order = require('../models/orderSchema');
 
 
