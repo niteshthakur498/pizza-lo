@@ -4,7 +4,8 @@
   "description": "Backend for Pizza Lo",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "heroku-postbuild": "cd ../frontend && npm install && npm run build"
   },
   "keywords": [
     "nodejs",
