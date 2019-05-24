@@ -5,7 +5,7 @@ let router = express.Router();
 
 let mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/Orders" ||"mongodb://deepesh:deepesh123@ds261296.mlab.com:61296/pizza-lo"
+mongoose.connect("mongodb://deepesh:deepesh123@ds261296.mlab.com:61296/pizza-lo"||process.env.MONGODB_URI || "mongodb://localhost:27017/Orders"
 					,{ useNewUrlParser: true },(err)=>{
 						if(err){
 							console.log("Error Mongo")
