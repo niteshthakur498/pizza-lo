@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {NavLink} from 'react-router-dom'
+import {NavLink,Link} from 'react-router-dom'
 
 class Header extends Component {
   render() {
@@ -7,7 +7,7 @@ class Header extends Component {
       <header>
       		<div className = "container">
                 <div className = "header-content">
-                  <div className = "logo">PIZZA LO</div>
+                  <div className = "logo"><Link to="/">PIZZA LO</Link></div>
                   <div className = "navbar">
                     <ul>
                       <li>
