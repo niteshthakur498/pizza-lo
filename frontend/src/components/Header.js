@@ -11,9 +11,6 @@ class Header extends Component {
                   <div className = "navbar">
                     <ul>
                       <li>
-                        <NavLink  exact to ='/' activeClassName = "activeNav">Home</NavLink>
-                      </li>
-                      <li>
                         <NavLink to = '/orders' activeClassName = "activeNav">Order</NavLink>
                       </li>
                       <li>
