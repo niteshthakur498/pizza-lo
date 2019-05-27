@@ -273,7 +273,7 @@ header{
 /*Home Page*/
 .homeContent{
   height: 91vh;
-  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('./static/images/pizza-bg.png');
+  /* background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('./static/images/pizza-bg.png'); */
   background-size: cover;
   background-repeat: no-repeat;
 }
