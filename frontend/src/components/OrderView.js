@@ -2,15 +2,15 @@ import React from 'react';
 
 class OrderView extends React.Component{
     handleDelete(){
-        console.log("hiiiii");
+        console.log("Deleted");
         this.props.handleDelete(this.props.order._id);
     }
     handleStatus(){
-        console.log("hiiiii");
+        console.log("Completed");
         this.props.handleStatus(this.props.order._id);
     }
     render(){
-        console.log(this.props.order.completed)
+        console.log(typeof this.props.order.orderTime);
         return(
             <div className="orderContainer">
                 <div className="orderNo">

@@ -19,10 +19,11 @@ class OrderList extends Component{
         fetch('http://127.0.0.1:5000/api/orders')
             .then(res => res.json())
             .then(response => {
-                console.log("called")
                 this.list = response;
                 this.setState({
-                    data: this.list
+                    data: this.list.filter(elem => {
+                        return !elem.completed;
+                    })
                 })
 
             })
@@ -30,12 +31,12 @@ class OrderList extends Component{
                 console.log(err);
             });
     }
-    handleAll(){
-        this.setState({
-            data: this.list
-        })
-        console.log("All")
-    }
+    // handleAll(){
+    //     this.setState({
+    //         data: this.list
+    //     })
+    //     console.log("All")
+    // }
     handleCompleted(){
         this.setState({
             data: this.list.filter(elem => {
@@ -96,7 +97,7 @@ class OrderList extends Component{
                     <div className ="ordersContainer">
                         <div className="orderTitle">Orders</div>
                         <div className = "sort">
-                            <div onClick = {this.handleAll.bind(this)}>ALL</div>
+                            {/* <div onClick = {this.handleAll.bind(this)}>ALL</div> */}
                             <div className="filter">
                                 <div onClick = {this.handleCompleted.bind(this)}>Completed</div>
                                 <div onClick = {this.handleProgress.bind(this)}>In Progress</div>

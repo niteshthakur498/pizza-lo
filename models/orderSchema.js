@@ -1,7 +1,6 @@
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
-
 let orderschema = new Schema({
 	name : {
 		type : String,
@@ -40,6 +39,7 @@ let orderschema = new Schema({
 		default: false
 	}
 });
+
 
 const Order = mongoose.model('Order', orderschema);
 

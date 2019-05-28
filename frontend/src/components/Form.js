@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Redirect } from 'react-router-dom'
 import Input from './Input';
 import Select from './Select';
 
@@ -22,7 +22,8 @@ class Form extends Component {
       pizzaSize: '',
       sizeError: '',
       pizzaDough: '',
-      doughError: ''
+      doughError: '',
+      toOrders:false
     }
   }
   handleChange(nam,val){
@@ -104,39 +105,46 @@ class Form extends Component {
           'Content-Type': 'application/json;charset=UTF-8'
         }
       }).then(res => res.json())
-      .then(response => console.log('Success:', JSON.stringify(response)))
-      .catch(error => console.error('Error:', error));
-      this.setState ({
-        name : '',
-        nameError: '',
-        email: '',
-        emailError: '',
-        address: '',
-        addressError: '',
-        city: '',
-        cityError: '',
-        phone: '',
-        phoneError: '',
-        typeError: '',
-        sizeError: '',
-        doughError: ''
-      },() => {
-        this.handleChange({
-          name:'',
-          email:'',
-          address:'',
-          city:'',
-          phone:'',
-          pizzaType:'',
-          pizzaSize:'',
-          pizzaDough:''
-        });
+      .then(response => {
+        console.log('Success:', response);
+        alert("Order Placed")
+        this.setState ({
+          name : '',
+          nameError: '',
+          email: '',
+          emailError: '',
+          address: '',
+          addressError: '',
+          city: '',
+          cityError: '',
+          phone: '',
+          phoneError: '',
+          typeError: '',
+          sizeError: '',
+          doughError: '',
+          toOrders:true
+        },() => {
+          this.handleChange({
+            name:'',
+            email:'',
+            address:'',
+            city:'',
+            phone:'',
+            pizzaType:'',
+            pizzaSize:'',
+            pizzaDough:''
+          });
+        })
+        
       })
-      
+      .catch(error => console.error('Error:', error));
     }
   }
 
   render() {
+    if(this.state.toOrders === true){
+     return <Redirect to= '/orders'/>
+    }
     return (
       <div className ="formContent">
         <div className = 'container'>
